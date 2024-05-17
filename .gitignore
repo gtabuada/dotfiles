@@ -1,0 +1,4 @@
+.config/gcloud
+.config/configstore
+.config/lazygit/state.yml
+.config/github-copilot
