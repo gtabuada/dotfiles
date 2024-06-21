@@ -1,0 +1,27 @@
+import = [
+	"C:\\Users\\ggtbh\\.config\\alacritty\\themes\\catppuccin-mocha.toml"
+]
+
+live_config_reload=true
+
+[shell]
+program="C:\\WINDOWS\\system32\\wsl.exe"
+args=["-d", "Arch", "-u", "gtabuada", "--cd", "~"]
+
+[window]
+opacity=0.98
+dynamic_title=false
+blur=true
+padding = { x = 8, y = 6 }
+dimensions = { columns = 140, lines = 34 }
+
+[font]
+normal= { family="SauceCodePro Nerd Font Mono", style="Regular" }
+bold= { family="SauceCodePro Nerd Font Mono", style="Bold" }
+italic= { family="SauceCodePro Nerd Font Mono", style="Italic" }
+bold_italic= { family="SauceCodePro Nerd Font Mono", style="Bold Italic" }
+size=14
+builtin_box_drawing=false
+
+[colors.search]
+matches = { foreground = "#181818", background = "#f4bf75" }
