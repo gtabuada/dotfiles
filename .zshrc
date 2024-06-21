@@ -5,9 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Github Sign Key
-export GPG_TTY=$(tty)
-
 # Zinit plugin manager
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
@@ -32,6 +29,7 @@ zinit snippet OMZP::gcloud
 zinit snippet OMZP::archlinux
 zinit snippet OMZP::sudo
 zinit snippet OMZP::command-not-found
+zinit snippet OMZP::asdf
 
 # Zsh History
 HISTFILE=~/.histfile
@@ -64,7 +62,7 @@ zinit cdreplay -q
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu no
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --icons --color always $realpath'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --icons=always --color=always $realpath'
 
 # ASDF
 # init
@@ -73,7 +71,8 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --icons --color always $real
 fpath=(${ASDF_DIR}/completions $fpath)
 
 # Aliases
-alias ls='exa --icons'
+alias ls='eza --color=always --long --git --no-filesize --icons=always --no-time'
+alias cd='z'
 alias cat='bat --style=auto'
 alias vim='nvim'
 alias p='pnpm'
@@ -90,20 +89,23 @@ esac
 # pnpm end
 
 # Z
-. ~/.zsh/z.sh
+# . ~/.zsh/z.sh
+
+# Github Sign Key
+export GPG_TTY=$(tty)
 
 # Keychain
-eval `keychain --eval --agents ssh --inherit any id_ed25519`
+eval `keychain --quiet --eval --agents ssh --inherit any id_ed25519`
 
 # Go bin
 export PATH="$PATH:$GOPATH/bin"
 alias go-reshim='asdf reshim golang && export GOROOT="$(asdf where golang)/go/"'
 
 # FZF
-export FZF_DEFAULT_COMMAND='fd --type f --color=always --hidden --follow --exclude .git'
+export FZF_DEFAULT_COMMAND='fd --color=always --strip-cwd-prefix --hidden --follow --exclude .git'
 export FZF_DEFAULT_OPTS="--ansi"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_CTRL_T_OPTS="--preview 'bat --style=numbers --color=always {}' --preview-window=right:60%:wrap --bind '?:toggle-preview'"
+export FZF_CTRL_T_OPTS="--preview 'bat -n --style=numbers --color=always {}' --preview-window=right:60%:wrap --bind '?:toggle-preview'"
 
 
 # XWindows
@@ -128,3 +130,4 @@ export PATH=$PATH:$JAVA_HOME/bin
 
 # Shell integrations
 eval "$(fzf --zsh)"
+eval "$(zoxide init zsh)"
