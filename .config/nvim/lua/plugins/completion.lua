@@ -43,7 +43,8 @@ return {
         mapping = cmp.mapping.preset.insert({
           ["<C-b>"] = cmp.mapping.scroll_docs(-4),
           ["<C-f>"] = cmp.mapping.scroll_docs(4),
-          ["<C-.>"] = cmp.mapping.complete(),
+          ["<A-.>"] = cmp.mapping.complete(),
+          ["<C-Enter>"] = cmp.mapping.complete(),
           ["<C-e>"] = cmp.mapping.abort(),
           ["<Tab>"] = cmp.mapping.confirm({ select = true }),
           -- ["<CR>"] = cmp.mapping.confirm({ select = true }),
