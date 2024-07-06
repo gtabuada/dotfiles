@@ -38,3 +38,8 @@ vim.keymap.set("i", "kj", "<ESC>", opts)
 
 -- Select all
 vim.keymap.set("n", "<C-a>", "ggVGzz", opts)
+
+-- TODO Comments
+vim.keymap.set("n", "<leader>tr", ":Trouble todo<CR>")
+vim.keymap.set("n", "<leader>ft", ":TodoTelescope<CR>")
+vim.keymap.set("n", "<leader>tq", ":TodoQuickFix<CR>")
