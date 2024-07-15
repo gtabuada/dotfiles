@@ -91,14 +91,14 @@ esac
 # Z
 # . ~/.zsh/z.sh
 
-# Github Sign Key
-export GPG_TTY=$(tty)
+# GPG TTY
+export GPG_TTY=$TTY
 
 # Keychain
 eval `keychain --quiet --eval --agents ssh --inherit any id_ed25519`
 
 # Go bin
-export PATH="$PATH:$GOPATH/bin"
+export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
 alias go-reshim='asdf reshim golang && export GOROOT="$(asdf where golang)/go/"'
 
 # FZF
