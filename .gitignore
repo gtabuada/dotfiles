@@ -2,3 +2,4 @@
 .config/configstore
 .config/lazygit/state.yml
 .config/github-copilot
+.config/go/telemetry
