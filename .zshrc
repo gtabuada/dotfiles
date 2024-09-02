@@ -107,9 +107,12 @@ export FZF_DEFAULT_OPTS="--ansi"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS="--preview 'bat -n --style=numbers --color=always {}' --preview-window=right:60%:wrap --bind '?:toggle-preview'"
 
+# Keybinds
+bindkey -s '^f' '^u~/dotfiles/scripts/findhome.sh^M'
+bindkey -s '^z' '^u~/dotfiles/scripts/cht.sh^M'
 
 # XWindows
-export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
+# export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
 
 # WSLG - Gui
 export DISPLAY=:0
@@ -131,3 +134,4 @@ export PATH=$PATH:$JAVA_HOME/bin
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
+eval "$(direnv hook zsh)"
