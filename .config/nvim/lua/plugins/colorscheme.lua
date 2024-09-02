@@ -11,6 +11,7 @@ return {
 				fidget = true,
 				harpoon = true,
 				mason = true,
+				lsp_trouble = true,
 				mini = {
 					enabled = true,
 					indentscope_color = "", -- catppuccin color (eg. `lavender`) Default: text

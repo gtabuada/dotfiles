@@ -26,8 +26,14 @@ return {
         lualine_b = { "branch", "diff", "diagnostics" },
         lualine_c = { "filename" },
         lualine_x = {
-          "encoding",
-          "fileformat",
+          -- "encoding",
+          -- "fileformat",
+          {
+            function()
+              return vim.fn.getfperm(vim.fn.expand("%:p"))
+            end,
+          },
+
           "filetype",
         },
         lualine_y = { "progress" },
@@ -44,7 +50,7 @@ return {
       tabline = {},
       winbar = {},
       inactive_winbar = {},
-      extensions = {},
+      extensions = { "oil" },
     })
   end,
 }
