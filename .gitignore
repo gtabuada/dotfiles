@@ -3,3 +3,7 @@
 .config/lazygit/state.yml
 .config/github-copilot
 .config/go/telemetry
+.config/ngrok
+.config/clerk
+.config/create-next-app-nodejs
+.config/payload-nodejs
