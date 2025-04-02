@@ -4,7 +4,7 @@
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
-  selected=$(fd . ~/dev/lyncas ~/dev/jobs ~/dev/sandbox ~/dotfiles ~/dotfiles/.config --type d --exclude .git --exclude node_modules --max-depth 1 --hidden --full-path | fzf)
+  selected=$(fd . ~/dev/gxt ~/dev/lyncas ~/dev/jobs ~/dev/sandbox ~/dev/project ~/dotfiles ~/dotfiles/.config --type d --exclude .git --exclude node_modules --max-depth 1 --hidden --full-path | fzf)
 fi
 
 # If none; clear exit

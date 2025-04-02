@@ -77,8 +77,9 @@ alias cat='bat --style=auto'
 alias vim='nvim'
 alias p='pnpm'
 alias lg='lazygit'
-export WIN_HOME="/mnt/c/Users/ggtbh"
-alias @@="cd $WIN_HOME"
+export WINHOME="/mnt/c/Users/ggtbh"
+export DOWNLOADS="/mnt/c/Users/ggtbh/Downloads"
+alias @@="cd $WINHOME"
 
 # pnpm
 export PNPM_HOME="/home/gtabuada/.local/share/pnpm"
